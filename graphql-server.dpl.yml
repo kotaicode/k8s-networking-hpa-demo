@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: graphql-server
+  namespace: k8s-demo
+  labels:
+    app: graphql-server
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: graphql-server
+  template:
+    metadata:
+      labels:
+        app: graphql-server
+    spec:
+      containers:
+      - image: kotaicode/go-graphql-sqs-example
+        name: go-graphql
+        ports:
+        - name: http
+          containerPort: 3000

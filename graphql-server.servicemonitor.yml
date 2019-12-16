@@ -1,0 +1,12 @@
+kind: ServiceMonitor
+apiVersion: monitoring.coreos.com/v1
+metadata:
+  name: graphql-server
+  labels:
+    release: prom-operator
+spec:
+  selector:
+    matchLabels:
+      app: graphql-server
+  endpoints: 
+  - port: http
